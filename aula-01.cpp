@@ -1,5 +1,10 @@
-// meu primeiro programa
+// Aula 01 de Computação ara Engenharia
 #include <iostream>
+// Cuida do output e input
 using namespace std;
 
-// cyber segurança - bernado
+
+int main() {
+    cout << "Ola mundo";
+    return 0;
+}
