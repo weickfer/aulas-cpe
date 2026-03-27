@@ -1,6 +1,6 @@
 ## Ao iniciar a aula execute:
 ```sh
-git config --global credential.helper ""
+git config --global --unset credential.helper
 ````
 
 ## Para compilar
