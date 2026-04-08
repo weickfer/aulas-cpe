@@ -1,5 +1,4 @@
 #include <iostream>;
-#include <list>;
 
 using namespace std;
 
@@ -7,7 +6,6 @@ int main() {
     int a = 0;
     int b = 0;
     int c = 0;
-
     int aux = 0;
 
     cout << "Digite um numero:\n";
@@ -41,12 +39,6 @@ int main() {
     cout << "A: " << a << "\n";
     cout << "B: " << b << "\n";
     cout << "C: " << c << "\n";
-
-    // if (...) {
-
-    // }
-
-
 
     return 0;
 }
