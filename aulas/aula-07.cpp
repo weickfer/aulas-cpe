@@ -4,10 +4,12 @@ using namespace std;
 
 int main() {
     string palavra = "";
-    string vogais = "aeiou";
+    string vogais = "aeiouAEIOU";
 
     cout << "Digite uma palavra: ";
-    cin >> palavra;
+    getline(cin, palavra);
+
+    int counter = 0;
 
     for (int i = 0; i < palavra.size(); i++) {
         char letra = palavra[i];
@@ -16,10 +18,13 @@ int main() {
             char vogal = vogais[j];
 
             if(letra == vogal) {
+                counter++;
                 cout << "A letra {" << letra << "} e vogal!\n";
             }
         };
     }
+
+    cout << counter;
     
     return 0;
 }
