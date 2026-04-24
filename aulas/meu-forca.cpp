@@ -44,30 +44,55 @@ string displayForca(string objetivo, string input) {
 
 int main() {
   string palavra = "";
+  int maxTentativas = 0;
   cout << "Digite uma palavra para ser adivinhada: ";
   cin >> palavra;
-
-  system("cls");
-
-  int tamanho = palavra.length();
-  string espacos = montarDisplaySimples(tamanho);
   
-  cout << "São ("<< tamanho <<") letras: " <<espacos << endl;
-
-  int erros = 0;
-  int acertos = 0;
-
+  system("cls");
+  
+  int tamanho = palavra.length();
+  
+  cout << "Digite o numero de tentativas: ";
+  cin >> maxTentativas;
+  
+  system("cls");
+  
+  if(maxTentativas < tamanho) {
+    cout << "O numero de tentativas nao pode ser menor que o numero de letras.";
+    return 0;
+  }
+  
+  int tentativas = 0;
+  
   string letras = "";
-
+  
   while (true) {
+    if((maxTentativas - tentativas) == 0) {
+      cout << "Voce esgotou todas as suas tentativas :(" << endl;
+      cout << "A palavra era: " << palavra << endl;
+      cout << endl;
+      break;
+    }
+
+    string letrasOrdenadas = displayForca(palavra, letras);
+
+    if(letrasOrdenadas.find("_") == string::npos) {
+      cout << "Parabens! Voce acertou a palavra. ";
+
+      break;
+    }
+
+    cout << "Sao ("<< tamanho <<") letras: " << letrasOrdenadas << endl;
+    cout << "Voce tem ("<< maxTentativas - tentativas <<") tentativas." << endl;
+    // cout << letrasOrdenadas << endl;
+    cout << endl;
     cout << "Digite uma letra: ";
     char letra;
     cin >> letra;
     letras = letras + letra;
+    tentativas = tentativas + 1;
 
-    string letrasOrdenadas = displayForca(palavra, letras);
-
-    cout << letrasOrdenadas << endl;
+    system("cls");
   }
 
   return 0;
